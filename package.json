@@ -1,0 +1,48 @@
+{
+  "name": "coin-watcher",
+  "displayName": "Coin Watcher",
+  "description": "Simple coin watcher extension.",
+  "version": "0.0.1",
+  "pricing": "Free",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "publisher": "fuongz",
+  "homepage": "https://phuongphung.com",
+  "author": {
+    "name": "fuongz",
+    "email": "hi@phuongphung.com",
+    "url": "https://phuongphung.com"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/fuongz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuongz/vscode-coin-watcher.git"
+  },
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {},
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "pnpm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.89.0",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+}
