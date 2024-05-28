@@ -29,20 +29,48 @@
   "activationEvents": [
     "onStartupFinished"
   ],
-  "main": "./extension.js",
-  "contributes": {},
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Coin Watcher",
+      "properties": {
+        "coin-watcher.apiUrl": {
+          "title": "API URL",
+          "type": "string",
+          "description": "API URL",
+          "scope": "application",
+          "default": "http://localhost:3000/api/common/price-24h?symbols=NOTUSDT"
+        },
+        "coin-watcher.symbolField": {
+          "type": "string",
+          "description": "Symbol field to display in status bar eg. BTCUSDT",
+          "scope": "application",
+          "default": "symbol"
+        },
+        "coin-watcher.priceField": {
+          "type": "string",
+          "description": "Last price field to display in status bar eg. BTCUSDT",
+          "scope": "application",
+          "default": "lastPrice"
+        }
+      }
+    }
+  },
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "pnpm run lint",
-    "test": "vscode-test"
+    "vscode:prepublish": "npm run compile",
+    "compile": "npx tsc -p ./",
+    "lint": "eslint \"src/**/*.ts\"",
+    "watch": "npx tsc -watch -p ./"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
-    "@types/node": "18.x",
+    "@types/node": "~18.19.33",
     "@types/vscode": "^1.89.0",
     "@vscode/test-cli": "^0.0.6",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
-    "typescript": "^5.3.3"
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
   }
 }
