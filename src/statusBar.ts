@@ -88,6 +88,7 @@ class StatusBar {
     }
     console.log(`🚀 [${EXTENSION_ID} - StatusBar] Stopping...`)
     clearInterval(this.fetchInterval)
+    this.statusBarItem?.dispose()
   }
 }
 
